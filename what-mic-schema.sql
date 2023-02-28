@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS public."factResults"
 
 CREATE TABLE IF NOT EXISTS public."dimMics"
 (
-    mic_id integer NOT NULL,
+    mic_id smallint NOT NULL,
     manufacturer "char" NOT NULL,
     model "char" NOT NULL,
     type "char" NOT NULL,
@@ -41,16 +41,42 @@ CREATE TABLE IF NOT EXISTS public."dimVenue"
     PRIMARY KEY (venue_id)
 );
 
+CREATE TABLE IF NOT EXISTS public."flakeMembers"
+(
+    member_id bigint NOT NULL,
+    role "char" NOT NULL,
+    band_id integer NOT NULL,
+    PRIMARY KEY (member_id)
+);
+
 CREATE TABLE IF NOT EXISTS public."dimSource"
 (
-    source_id integer NOT NULL,
-    source_type "char" NOT NULL,
+    source_id smallint NOT NULL,
+    source_name "char" NOT NULL,
     PRIMARY KEY (source_id)
+);
+
+CREATE TABLE IF NOT EXISTS public."flakeMicUsed"
+(
+    mic_used_id bigint NOT NULL,
+    member_id bigint NOT NULL,
+    source_id smallint NOT NULL,
+    mic_name "char" NOT NULL,
+    mic_id smallint NOT NULL,
+    PRIMARY KEY (mic_used_id)
 );
 
 ALTER TABLE IF EXISTS public."factResults"
     ADD FOREIGN KEY (mic_id)
     REFERENCES public."dimMics" (mic_id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."factResults"
+    ADD FOREIGN KEY (source_id)
+    REFERENCES public."dimSource" (source_id) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
@@ -72,9 +98,33 @@ ALTER TABLE IF EXISTS public."factResults"
     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public."factResults"
+ALTER TABLE IF EXISTS public."flakeMembers"
+    ADD FOREIGN KEY (band_id)
+    REFERENCES public."dimBand" (band_id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."flakeMicUsed"
+    ADD FOREIGN KEY (mic_id)
+    REFERENCES public."dimMics" (mic_id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."flakeMicUsed"
     ADD FOREIGN KEY (source_id)
     REFERENCES public."dimSource" (source_id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID;
+
+
+ALTER TABLE IF EXISTS public."flakeMicUsed"
+    ADD FOREIGN KEY (member_id)
+    REFERENCES public."flakeMembers" (member_id) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;
