@@ -1,2 +1,2 @@
 # what-mic
-What mic should I use?
+Please see 'ProjectAbstract' for details and updates.
