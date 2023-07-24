@@ -101,37 +101,37 @@ ALTER TABLE flakeMicUsed
     REFERENCES flakeMembers (member_id);
 
 copy factResults from 's3://dhurtgen-what-mic/Facts'
-credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+credentials 'aws_iam_role=arn:aws:iam::############:role/##########'
 ignoreheader 1
 csv;
 
 copy dimMics from 's3://dhurtgen-what-mic/Mics-'
-credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+credentials 'aws_iam_role=arn:aws:iam::############:role/##########'
 ignoreheader 1
 csv;
 
 copy dimBand from 's3://dhurtgen-what-mic/Bands'
-credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+credentials 'aws_iam_role=arn:aws:iam::############:role/##########'
 ignoreheader 1
 csv;
 
 copy dimVenue from 's3://dhurtgen-what-mic/Venues'
-credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+credentials 'aws_iam_role=arn:aws:iam::############:role/##########'
 ignoreheader 1
 csv;
 
 copy flakeMembers from 's3://dhurtgen-what-mic/Members'
-credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+credentials 'aws_iam_role=arn:aws:iam::############:role/##########'
 ignoreheader 1
 csv;
 
 copy dimSource from 's3://dhurtgen-what-mic/Sources'
-credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+credentials 'aws_iam_role=arn:aws:iam::############:role/##########'
 ignoreheader 1
 csv;
 
 copy flakeMicUsed from 's3://dhurtgen-what-mic/MicsUsed'
-credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+credentials 'aws_iam_role=arn:aws:iam::############:role/##########'
 ignoreheader 1
 csv;
 
