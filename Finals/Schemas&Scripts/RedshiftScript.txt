@@ -1,0 +1,163 @@
+CREATE TABLE factResults
+(
+    fact_id integer NOT NULL,
+    mic_id smallint NOT NULL,
+    band_id integer NOT NULL,
+    venue_id smallint NOT NULL,
+    source_id smallint NOT NULL,
+    result varchar(10) NOT NULL,
+    result_numeric decimal(3,2) NOT NULL,
+    PRIMARY KEY (fact_id)
+);
+
+CREATE TABLE dimMics
+(
+    mic_id smallint NOT NULL,
+    manufacturer varchar(20) NOT NULL,
+    model varchar(20) NOT NULL,
+    type varchar(10) NOT NULL,
+    PRIMARY KEY (mic_id)
+);
+
+CREATE TABLE dimBand
+(
+    band_id integer NOT NULL,
+    band_name varchar(30) NOT NULL,
+    num_members smallint NOT NULL,
+    style varchar(10) NOT NULL,
+    PRIMARY KEY (band_id)
+);
+
+CREATE TABLE dimVenue
+(
+    venue_id smallint NOT NULL,
+    venue_name varchar(50) NOT NULL,
+    size varchar(10) NOT NULL,
+    reverberance_seconds decimal(3,2) NOT NULL,
+    PRIMARY KEY (venue_id)
+);
+
+CREATE TABLE flakeMembers
+(
+    member_id integer NOT NULL,
+    band_id integer NOT NULL,
+    role varchar(20) NOT NULL,
+    PRIMARY KEY (member_id)
+);
+
+CREATE TABLE dimSource
+(
+    source_id smallint NOT NULL,
+    source_name varchar(20) NOT NULL,
+    PRIMARY KEY (source_id)
+);
+
+CREATE TABLE flakeMicUsed
+(
+    mic_used_id integer NOT NULL,
+    member_id integer NOT NULL,
+    source_id smallint NOT NULL,
+    mic_name varchar(20) NOT NULL,
+    mic_id smallint NOT NULL,
+    PRIMARY KEY (mic_used_id)
+);
+
+ALTER TABLE factResults
+    ADD FOREIGN KEY (mic_id)
+    REFERENCES dimMics (mic_id);
+
+ALTER TABLE factResults
+    ADD FOREIGN KEY (source_id)
+    REFERENCES dimSource (source_id);
+
+
+ALTER TABLE factResults
+    ADD FOREIGN KEY (band_id)
+    REFERENCES dimBand (band_id);
+
+
+ALTER TABLE factResults
+    ADD FOREIGN KEY (venue_id)
+    REFERENCES dimVenue (venue_id);
+
+
+ALTER TABLE flakeMembers
+    ADD FOREIGN KEY (band_id)
+    REFERENCES dimBand (band_id);
+
+
+ALTER TABLE flakeMicUsed
+    ADD FOREIGN KEY (mic_id)
+    REFERENCES dimMics (mic_id);
+
+
+ALTER TABLE flakeMicUsed
+    ADD FOREIGN KEY (source_id)
+    REFERENCES dimSource (source_id);
+
+
+ALTER TABLE flakeMicUsed
+    ADD FOREIGN KEY (member_id)
+    REFERENCES flakeMembers (member_id);
+
+copy factResults from 's3://dhurtgen-what-mic/Facts'
+credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+ignoreheader 1
+csv;
+
+copy dimMics from 's3://dhurtgen-what-mic/Mics-'
+credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+ignoreheader 1
+csv;
+
+copy dimBand from 's3://dhurtgen-what-mic/Bands'
+credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+ignoreheader 1
+csv;
+
+copy dimVenue from 's3://dhurtgen-what-mic/Venues'
+credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+ignoreheader 1
+csv;
+
+copy flakeMembers from 's3://dhurtgen-what-mic/Members'
+credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+ignoreheader 1
+csv;
+
+copy dimSource from 's3://dhurtgen-what-mic/Sources'
+credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+ignoreheader 1
+csv;
+
+copy flakeMicUsed from 's3://dhurtgen-what-mic/MicsUsed'
+credentials 'aws_iam_role=arn:aws:iam::659428444640:role/RedshiftS3'
+ignoreheader 1
+csv;
+
+select * from factResults where result_numeric = 1 order by fact_id limit 20;
+
+select * from dimMics;
+
+select * from dimBand where num_members = 6 order by band_id limit 20;
+
+select * from dimVenue limit 20;
+
+select * from flakeMembers where role = 'Lead Vocalist' order by member_id limit 20;
+
+select * from dimSource;
+
+select * from flakeMicUsed where mic_id = 13 order by mic_used_id limit 20;
+
+-- Materialized View
+CREATE MATERIALIZED VIEW mic_results_mv AS 
+	SELECT manufacturer, model, source_name, style, num_members, size, result_numeric
+	FROM factResults f, dimMics m, dimSource s, dimBand b, dimVenue v
+	WHERE f.mic_id = m.mic_id
+	AND f.source_id = s.source_id
+	AND f.band_id = b.band_id
+	AND f.venue_id = v.venue_id;
+
+REFRESH MATERIALIZED VIEW mic_results_mv;
+
+select * from mic_results_mv limit 20;

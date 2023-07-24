@@ -1,0 +1,30 @@
+Testing information for what_mic staging db, Sun Jul 23 10:22:52 2023:
+
+Records creation, dimBand:
+	There should be 25 new records added to the table. 
+	Actual number of records added: 25
+Data validity, dimBand:
+	The band_id data is valid.
+	The num_members data is valid.
+	The style data is valid.
+
+Records creation, flakeMembers:
+	There should be 185 new records added to the table. 
+	Actual number of records added: 185
+Data validity, flakeMembers:
+	The member_id data is valid.
+	The role data is valid.
+
+Records creation, flakeMicUsed:
+	There should be 285 new records added to the table. 
+	Actual number of records added: 285
+Data validity, flakeMicUsed:
+	The mic_used_id data is valid.
+	The mic_name data is valid.
+
+Records creation, factResults:
+	There should be 285 new records added to the table. 
+	Actual number of records added: 285
+Data validity, factResults:
+	The fact_id data is valid.
+	The result data is valid.
