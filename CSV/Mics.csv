@@ -1,0 +1,40 @@
+mic_id,manufacturer,model,type
+0,AKG,C414 XLII,Condenser
+1,Audio-Technica,AT4040,Condenser
+2,Audix,D2,Dynamic
+3,Audix,D6,Dynamic
+4,Audix,i5,Dynamic
+5,Audix,OM7,Dynamic
+6,Beyerdynamic,M 69 TG,Dynamic
+7,Beyerdynamic,M 88 TG,Dynamic
+8,Beyerdynamic,M 160,Ribbon
+9,Beyerdynamic,M 201 TG,Dynamic
+10,DPA,d:facto,Condenser
+11,Earthworks,SR25,Condenser
+12,Earthworks,SR314,Condenser
+13,Electro-Voice,635a,Dynamic
+14,Electro-Voice,767a N/D,Dynamic
+15,Electro-Voice,PL35,Dynamic
+16,Electro-Voice,RE16,Dynamic
+17,Electro-Voice,RE20,Dynamic
+18,Heil,PR30,Dynamic
+19,Heil,PR35,Dynamic
+20,Neumann,KM 184,Condenser
+21,Neumann,KMS 105,Condenser
+22,Royer,R-121,Ribbon
+23,Schoeps,CMC64,Condenser
+24,Sennheiser,e902,Dynamic
+25,Sennheiser,e904,Dynamic
+26,Sennheiser,e906,Dynamic
+27,Sennheiser,e935,Dynamic
+28,Sennheiser,MD 421,Dynamic
+29,Sennheiser,MD 441 U,Dynamic
+30,Shure,Beta 52A,Dynamic
+31,Shure,Beta 57A,Dynamic
+32,Shure,Beta 58A,Dynamic
+33,Shure,Beta 98AD/C,Condenser
+34,Shure,SM7B,Dynamic
+35,Shure,SM57,Dynamic
+36,Shure,SM58,Dynamic
+37,Shure,SM81,Condenser
+38,Telefunken,M80,Dynamic

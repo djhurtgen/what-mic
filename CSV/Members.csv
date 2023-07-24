@@ -1,0 +1,176 @@
+member_id,band_id,role
+0,0,Lead Vocalist
+1,0,Drummer
+2,0,Bassist
+3,0,Backup Vocalist
+4,0,Guitarist
+5,0,Horn Player
+6,0,Backup Vocalist
+7,0,Percussionist
+8,0,Horn Player
+9,0,Guitarist
+10,1,Lead Vocalist
+11,1,Drummer
+12,1,Bassist
+13,1,Guitarist
+14,1,Horn Player
+15,1,Keyboardist
+16,2,Lead Vocalist
+17,2,Drummer
+18,2,Bassist
+19,2,String Player
+20,2,Backup Vocalist
+21,2,Percussionist
+22,2,String Player
+23,2,Percussionist
+24,2,String Player
+25,3,Lead Vocalist
+26,3,Drummer
+27,3,Bassist
+28,3,Backup Vocalist
+29,4,Lead Vocalist
+30,4,Drummer
+31,4,Bassist
+32,4,Keyboardist
+33,4,Keyboardist
+34,4,Percussionist
+35,4,Guitarist
+36,4,Backup Vocalist
+37,5,Lead Vocalist
+38,5,Drummer
+39,5,Bassist
+40,5,Horn Player
+41,5,Guitarist
+42,6,Lead Vocalist
+43,6,Drummer
+44,6,Bassist
+45,6,String Player
+46,7,Lead Vocalist
+47,7,Drummer
+48,7,Bassist
+49,7,String Player
+50,7,String Player
+51,7,Guitarist
+52,7,Guitarist
+53,7,Backup Vocalist
+54,7,String Player
+55,7,Guitarist
+56,8,Lead Vocalist
+57,8,Drummer
+58,8,Bassist
+59,8,Percussionist
+60,8,Horn Player
+61,8,Percussionist
+62,8,Percussionist
+63,9,Lead Vocalist
+64,9,Drummer
+65,9,Bassist
+66,9,Keyboardist
+67,9,String Player
+68,10,Lead Vocalist
+69,10,Drummer
+70,10,Bassist
+71,10,Guitarist
+72,10,Percussionist
+73,10,Backup Vocalist
+74,10,Percussionist
+75,10,Guitarist
+76,10,Backup Vocalist
+77,10,Percussionist
+78,11,Lead Vocalist
+79,11,Drummer
+80,11,Bassist
+81,11,String Player
+82,11,Backup Vocalist
+83,12,Lead Vocalist
+84,12,Drummer
+85,12,Bassist
+86,12,Backup Vocalist
+87,13,Lead Vocalist
+88,13,Drummer
+89,13,Bassist
+90,13,Guitarist
+91,13,Keyboardist
+92,14,Lead Vocalist
+93,14,Drummer
+94,14,Bassist
+95,14,Keyboardist
+96,14,Horn Player
+97,15,Lead Vocalist
+98,15,Drummer
+99,15,Bassist
+100,15,Guitarist
+101,15,Keyboardist
+102,15,String Player
+103,15,String Player
+104,15,String Player
+105,15,Horn Player
+106,15,Keyboardist
+107,16,Lead Vocalist
+108,16,Drummer
+109,16,Bassist
+110,16,Keyboardist
+111,16,Horn Player
+112,16,Keyboardist
+113,16,Guitarist
+114,16,Guitarist
+115,17,Lead Vocalist
+116,17,Drummer
+117,17,Bassist
+118,17,Guitarist
+119,17,Percussionist
+120,17,Percussionist
+121,17,Percussionist
+122,17,Guitarist
+123,17,Backup Vocalist
+124,17,Guitarist
+125,18,Lead Vocalist
+126,18,Drummer
+127,18,Bassist
+128,18,Keyboardist
+129,19,Lead Vocalist
+130,19,Drummer
+131,19,Bassist
+132,19,Keyboardist
+133,19,Backup Vocalist
+134,19,Keyboardist
+135,20,Lead Vocalist
+136,20,Drummer
+137,20,Bassist
+138,20,Keyboardist
+139,20,Backup Vocalist
+140,20,Guitarist
+141,20,Guitarist
+142,20,String Player
+143,21,Lead Vocalist
+144,21,Drummer
+145,21,Bassist
+146,21,Guitarist
+147,21,Horn Player
+148,21,Guitarist
+149,21,Backup Vocalist
+150,21,Keyboardist
+151,22,Lead Vocalist
+152,22,Drummer
+153,22,Bassist
+154,22,Backup Vocalist
+155,22,Percussionist
+156,22,Keyboardist
+157,22,Backup Vocalist
+158,22,Guitarist
+159,22,String Player
+160,23,Lead Vocalist
+161,23,Drummer
+162,23,Bassist
+163,23,String Player
+164,23,Horn Player
+165,24,Lead Vocalist
+166,24,Drummer
+167,24,Bassist
+168,24,Horn Player
+169,24,Keyboardist
+170,24,Backup Vocalist
+171,24,Percussionist
+172,24,Backup Vocalist
+173,24,String Player
+174,24,Percussionist
